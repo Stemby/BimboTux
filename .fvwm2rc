@@ -1,0 +1,82 @@
+################################## .fvwm2rc  ##################################
+# Version: BimboTux 0.1.0                                                     #
+# Authors: Carlo Stemberger, Gianni Fioretta                                  #
+# Last updated: 02/Apr/2009                                                   #
+# Released by the authors into the public domain.                             #
+###############################################################################
+
+#----------------------------------------------------- Impostazioni globali --#
+# percorso immagini
+#ImagePath /usr/share/pixmaps: /usr/include/X11/pixmaps
+
+# un'unica pagina (niente desktop virtuali)
+DeskTopSize 1x1
+
+# mini-icone
+#Style *		MiniIcon mini.x.xpm
+
+#----------------------------------------------------------------- Finestre --#
+# COMPORTAMENTO
+# posizionamento: ignora la posizione suggerita dal programma lanciato
+Style * NoPPosition
+
+# attivazione finestra con un click
+Style * ClickToFocus
+
+# riduzione a icona: non appare nessuna icona sul desktop
+Style * NoIcon
+
+# BARRA DEL TITOLO
+# font: SteveHand
+Style * Font "StringEncoding=UTF-8:xft:Steve:bold:pixelsize=20"
+#Style * Font -adobe-helvetica-bold-r-*-*-20-*-*-*-*-*-*-*
+
+# colore del testo e dello sfondo, finestra attiva: bianco e blu acciaio
+Style * HilightFore white, HilightBack steelblue
+
+# colore del testo e dello sfondo, finestre inattive: nero e grigio
+Style * Color Black/Grey
+
+# spessore del bordo e delle maniglie: 7
+Style * BorderWidth 7, HandleWidth 7
+
+# barra del titolo "piatta", niente effetto "bottone"
+TitleStyle -- Flat
+
+# BOTTONI
+# mini-icona del programma lanciato, a sinistra
+ButtonStyle 1 MiniIcon -- Flat
+
+# icona "chiudi"
+#ButtonStyle 2 Pixmap mini.cross.xpm -- Flat # non funziona ###################
+
+# icona "riduci a icona"
+#ButtonStyle 4 Pixmap mini.lower2.xpm -- Flat # non funziona ##################
+
+# COMPORTAMENTO DEL MOUSE
+# mini-icona del programma lanciato
+Mouse 0 1 A # non fa niente
+
+# bottoni della barra del titolo
+Mouse 0 2 A Close
+Mouse 0 4 A Maximize 100 100
+Mouse 0 6 A Iconify
+
+#---------------------------------------------------------------- Menu Esci --#
+AddToMenu "HaltMenu"
++ "Arresta la macchina%mini.stop.xpm%"  Exec    sudo shutdown -h now
+
+#------------------------------------------------- Barra delle applicazioni --#
+Style FvwmTaskBar NoTitle, Sticky, BorderWidth 0, HandleWidth 0
+AddToFunc InitFunction I Module FvwmTaskBar
+AddToFunc RestartFunction I Module FvwmTaskBar
+*FvwmTaskBarStartName Esci
+*FvwmTaskBarStartMenu HaltMenu
+*FvwmTaskBarStartIcon mini.stop.xpm
+*FvwmTaskBar: UseSkipList
+WindowsSkipList: lxlauncher
+
+#--------------------------------------------- Programmi lanciati all'avvio --#
+DestroyFunc StartFunction
+AddToFunc StartFunction
++ I Exec exec /usr/bin/lxlauncher &
