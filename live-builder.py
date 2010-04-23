@@ -16,12 +16,14 @@ def download(filename, destination):
 def main():
     # live-helper configuration 
     options = {}
-
-    options["--mirror-binary"] = '"http://ftp.it.debian.org/debian/"'
-    options["--mirror-bootstrap"] = '"http://localhost:9999/debian/"'
-    options["--debian-installer"] = 'live'
-    options["--debian-installer-distribution=daily"] = ''
-    options["--debian-installer-gui"] = 'disabled'
+    options['--bootappend-live'] = '"locale=it_IT.UTF-8 keyb=it"'
+    options['--hostname'] = 'bimbotux'
+    options['-d'] = 'squeeze'
+    options['--mirror-binary'] = '"http://ftp.it.debian.org/debian/"'
+    options['--mirror-bootstrap'] = '"http://localhost:9999/debian/"'
+    options['--debian-installer'] = 'live'
+    #options['--debian-installer-distribution=daily'] = ''
+    options['--debian-installer-gui'] = 'disabled'
 
     lh_config = 'lh config'
     for option, value in options.iteritems():
