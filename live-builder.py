@@ -38,10 +38,12 @@ def main():
     download(filename, destination)
 
     # Enable the package list
+    print 'Enabling the package list...'
     for line in fileinput.input('config/chroot', inplace=1):
         if 'LH_PACKAGES_LISTS' in line:
             line = line.replace('standard', 'standard bimbotuxpkg')
         print line,
+    print '... done'
 
     # Download .fvwm2rc 
     filename = '.fvwm2rc'
