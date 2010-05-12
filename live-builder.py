@@ -20,7 +20,7 @@ def main():
     options['--hostname'] = 'bimbotux'
     options['-d'] = 'squeeze'
     options['--mirror-binary'] = '"http://ftp.it.debian.org/debian/"'
-    options['--mirror-bootstrap'] = '"http://localhost:9999/debian/"'
+    options['--mirror-bootstrap'] = '"http://192.168.0.100:9999/debian/"'
     options['--debian-installer'] = 'live'
     #options['--debian-installer-distribution=daily'] = ''
     options['--debian-installer-gui'] = 'disabled'
