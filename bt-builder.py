@@ -9,7 +9,7 @@ import fileinput
 # General functions
 def download(filename, destination):
     url = 'http://github.com/Stemby/BimboTux/raw/master/files/%s' % filename
-    print 'Downloading %s from %s ...' % (filename, url)
+    print 'Downloading %s...\n\tfrom %s\n\tto %s' % (filename, url, destination)
     urllib.urlretrieve(url, destination + filename)
     print '... done'
 
