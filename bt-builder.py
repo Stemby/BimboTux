@@ -23,6 +23,7 @@ def main():
     options['--debian-installer'] = 'live'
     #options['--debian-installer-distribution=daily'] = ''
     options['--debian-installer-gui'] = 'disabled'
+    options['-r'] = 'live.debian.net' # workaround for bug #583485
 
     lh_config = 'lh config'
     for option, value in options.iteritems():
