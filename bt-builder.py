@@ -21,7 +21,7 @@ def main():
     options['--mirror-binary'] = '"http://ftp.it.debian.org/debian/"'
     options['--mirror-bootstrap'] = '"http://192.168.0.100:9999/debian/"'
     options['--debian-installer'] = 'live'
-    #options['--debian-installer-distribution'] = 'daily'
+    options['--debian-installer-distribution'] = 'daily'
     options['--debian-installer-gui'] = 'disabled'
     options['-r'] = 'live.debian.net' # workaround for bug #583485
 
