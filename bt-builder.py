@@ -60,24 +60,6 @@ def main():
     filename = '.gtkrc-2.0'
     destination = 'config/chroot_local-includes/etc/skel/'
     download(filename, destination)
-    
-    # Download Xwrapper.config
-    filename = 'Xwrapper.config'
-    destination = 'config/chroot_local-includes/etc/X11/'
-#    os.system('mkdir -p %s' % destination)
-#    download(filename, destination)
-
-    # Download startx.sh
-    filename = 'startx.sh'
-    destination = 'config/chroot_local-includes/usr/bin/'
-#    os.system('mkdir -p %s' % destination)
-#    download(filename, destination)
-#    os.system('chmod +x %s' % destination + filename)
-
-    # Download .bash_profile
-    filename = '.bash_profile'
-    destination = 'config/chroot_local-includes/etc/skel/'
-#    download(filename, destination)
 
     # Download supertux.desktop
     filename = 'supertux.desktop'
