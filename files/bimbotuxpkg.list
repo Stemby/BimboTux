@@ -2,6 +2,7 @@
 alsa-base
 cups
 xorg
+nodm
 fvwm
 ttf-sjfonts
 lxlauncher

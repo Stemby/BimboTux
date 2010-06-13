@@ -16,12 +16,12 @@ def main():
     # live-helper configuration 
     options = {}
     lcOptions = [] # live-config options
-    for i in [
+    for i in (
             'hostname=bimbotux',
             'locales=it_IT.UTF-8',
             'timezone=Europe/Rome',
             'keyboard-layouts=it'
-            ]:
+            ):
         lcOptions.append('live-config.%s' % i)
     options['--bootappend-live'] = '"%s"' % ' '.join(lcOptions)
     options['-d'] = 'squeeze'
