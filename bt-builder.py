@@ -63,7 +63,7 @@ def main():
     # Download .bashrc, workaround for #585932
     filename = '.bashrc'
     destination = 'config/chroot_local-includes/etc/skel/'
-    download(filename, destination)
+#    download(filename, destination)
 
     # Download .gtkrc-2.0
     filename = '.gtkrc-2.0'
