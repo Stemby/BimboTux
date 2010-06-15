@@ -22,3 +22,4 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 export PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/games
+
