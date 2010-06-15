@@ -25,7 +25,11 @@ def main():
         lcOptions.append('live-config.%s' % i)
     options['--bootappend-live'] = '"%s"' % ' '.join(lcOptions)
     options['-d'] = 'squeeze'
+#    options['--apt-recommends'] = 'false'
+    options['-a'] = 'i386'
+    options['-k'] = '686'
     options['--mirror-binary'] = '"http://ftp.it.debian.org/debian/"'
+#    options['--mirror-chroot'] = '"http://ftp.it.debian.org/debian/"'
     options['--mirror-bootstrap'] = '"http://192.168.0.100:9999/debian/"'
     options['--debian-installer'] = 'live'
     options['--debian-installer-distribution'] = 'daily'
