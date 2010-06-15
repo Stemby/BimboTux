@@ -60,6 +60,11 @@ def main():
     download(filename, destination)
     os.system('chmod 440 %s' % destination + filename)
 
+    # Download .bashrc, workaround for #585932
+    filename = '.bashrc'
+    destination = 'config/chroot_local-includes/etc/skel/'
+    download(filename, destination)
+
     # Download .gtkrc-2.0
     filename = '.gtkrc-2.0'
     destination = 'config/chroot_local-includes/etc/skel/'
