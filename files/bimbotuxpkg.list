@@ -30,3 +30,6 @@ less
 lxterminal
 vim
 apt-file
+virtualbox-ose-guest-dkms
+virtualbox-ose-guest-utils
+virtualbox-ose-guest-x11
