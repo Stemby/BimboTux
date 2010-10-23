@@ -13,17 +13,23 @@ def download(filename, destination):
     print '... done'
 
 def main():
-    # live-helper configuration 
+    # live-build configuration
     options = {}
-    lcOptions = [] # live-config options
-    for i in (
-            'hostname=bimbotux',
-            'locales=it_IT.UTF-8',
-            'timezone=Europe/Rome',
-            'keyboard-layouts=it'
-            ):
-        lcOptions.append('live-config.%s' % i)
-    options['--bootappend-live'] = '"%s"' % ' '.join(lcOptions)
+#    lcOptions = [] # live-config options
+#    for i in (
+#            'hostname=bimbotux',
+#            'locales=it_IT.UTF-8',
+#            'timezone=Europe/Rome',
+#            'keyboard-layouts=it'
+#            ):
+#        lcOptions.append('live-config.%s' % i)
+#    options['--bootappend-live'] = '"%s"' % ' '.join(lcOptions)
+    options['--hostname'] = 'bimbotux'
+    options['--bootappend-live'] = '"\
+            locales=it_IT.UTF-8 \
+            keyboard-layouts=it \
+            timezone=Europe/Rome"'
+    options['--language'] = '"it"'
     options['-d'] = 'squeeze'
 #    options['--apt-recommends'] = 'false'
     options['-a'] = 'i386'
@@ -34,14 +40,14 @@ def main():
     options['--debian-installer'] = 'live'
     options['--debian-installer-distribution'] = 'daily'
     options['--debian-installer-gui'] = 'disabled'
-    options['-r'] = 'live.debian.net' # workaround for bug #583485
+#    options['-r'] = 'live.debian.net' # workaround for bug #583485
 
-    lh_config = 'lh config'
+    lb_config = 'lb config'
     for option, value in options.iteritems():
-        lh_config += ' %s %s' % (option, value)
+        lb_config += ' %s %s' % (option, value)
 
-    print lh_config
-    os.system(lh_config)
+    print lb_config
+    os.system(lb_config)
 
     # Download the package list
     filename = 'bimbotuxpkg.list'
@@ -61,9 +67,9 @@ def main():
     os.system('chmod 440 %s' % destination + filename)
 
     # Download .profile, workaround for #585932
-    filename = '.profile'
-    destination = 'config/chroot_local-includes/etc/skel/'
-    download(filename, destination)
+#    filename = '.profile'
+#    destination = 'config/chroot_local-includes/etc/skel/'
+#    download(filename, destination)
 
     # Download .gtkrc-2.0
     filename = '.gtkrc-2.0'
